@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 
+
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -102,13 +104,44 @@ public class SpaceInvaderView extends View {
 		this.setMeasuredDimension(x,y);
 	}
 
-}/*
-public class Alien extends Sprite {
 
-class alien extends Sprite { public alien(Bitmap bitmap, float x, float y) {
-	super(bitmap, x, y); }
-	// TODO Auto-generated constructor stub
-public void act() {
+	
+	/*
+    private void initSnakeView() {
+        setFocusable(true);
+
+        Resources r = this.getContext().getResources();
+        
+        resetTiles(4);
+        loadTile(alien1, r.getDrawable(R.drawable.alien1));
+        loadTile(ic_launcher, r.getDrawable(R.drawable.ic_launcher));
+        loadTile(missile, r.getDrawable(R.drawable.missile));
+        loadTile(missile2, r.getDrawable(R.drawable.missile2));
+        loadTile(ship, r.getDrawable(R.drawable.ship));
+    	
+    }*/
+	
+    public void loadImage(int res) {
+    	int x;
+    	int y;
+    	
+        Bitmap bitmap = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap); 
+        
+        Drawable image;
+		image.setBounds(0, 0, x, y);
+        image.draw(canvas);
+        
+        loadImage(alien1, r.getDrawable(R.drawable.alien1));
+        loadImage(ic_launcher, r.getDrawable(R.drawable.ic_launcher));
+        loadImage(missile, r.getDrawable(R.drawable.missile));
+        loadImage(missile2, r.getDrawable(R.drawable.missile2));
+        loadImage(ship, r.getDrawable(R.drawable.ship));
+    	
+        x=get.;
+       
+        return bitmap;
+    }
 
 }
 }*/
