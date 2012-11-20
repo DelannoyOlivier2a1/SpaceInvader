@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.example.android.snake.R;
+
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Picture;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -34,7 +35,7 @@ public class SpaceInvaderView extends View {
 
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
-
+	private Alien alien;
 
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -55,6 +56,7 @@ public class SpaceInvaderView extends View {
 	
 
 	void init(){
+		alien = new Alien(null, 0, 0);
 		paint = new Paint();
 		paint.setStyle(Style.STROKE);
 		paint.setColor(Color.YELLOW);
@@ -62,8 +64,8 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		
 	}
-
 
 
 
@@ -77,6 +79,7 @@ public class SpaceInvaderView extends View {
 		canvas.drawRGB(0, 0, 0);
 		canvas.drawRect(0, 0, TARGET_WIDTH-1, TARGET_HEIGHT-1, paint);
 		if (text != null){
+			
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
 	}
@@ -100,6 +103,7 @@ public class SpaceInvaderView extends View {
 		int y = computeSize(heightMeasureSpec,TARGET_HEIGHT);
 		this.setMeasuredDimension(x,y);
 	}
+
 
 	
 	/*
@@ -138,4 +142,6 @@ public class SpaceInvaderView extends View {
        
         return bitmap;
     }
+
 }
+}*/
