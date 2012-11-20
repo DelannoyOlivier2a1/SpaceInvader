@@ -27,6 +27,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.Property;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -76,11 +77,15 @@ public class SpaceInvaderView extends View {
 
         @Override
         public void handleMessage(Message msg) {
-            SpaceInvaderView.this.update();
-            SpaceInvaderView.this.invalidate();
+           SpaceInvaderView.this.update();
+           SpaceInvaderView.this.invalidate();
         }
 
-    }
+        public void sleep(long delayMillis) {
+        	this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    };
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -95,11 +100,21 @@ public class SpaceInvaderView extends View {
 	}
 	
 
+   public void sleep () {
+	   
+	   
+   }
 
 	public void update() {
-		// TODO Auto-generated method stub
 		
+		 
+		mRedrawHandler.sleep(1231);
+		
+		// TODO Auto-generated method stub
 	}
+
+	
+	
 
 	private int computeSize(int spec,int def){
 		int mode = View.MeasureSpec.getMode(spec);
@@ -148,7 +163,8 @@ public class SpaceInvaderView extends View {
 		image.setBounds(0, 0, x, y);
         image.draw(canvas);
         
-        loadImage(alien1, r.getDrawable(R.drawable.alien1));
+       
+		loadImage(alien1, r.getDrawable(R.drawable.alien1));
         loadImage(ic_launcher, r.getDrawable(R.drawable.ic_launcher));
         loadImage(missile, r.getDrawable(R.drawable.missile));
         loadImage(missile2, r.getDrawable(R.drawable.missile2));
