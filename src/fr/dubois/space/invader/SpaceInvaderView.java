@@ -48,6 +48,7 @@ public class SpaceInvaderView extends View {
 	private Alien alien;
 	private Vaisseau vaisseau;
 
+
 	public SpaceInvaderView(Context context) {
 		super(context);
 		init();
@@ -118,6 +119,7 @@ public class SpaceInvaderView extends View {
 
 	alien.act();
 	vaisseau.act();
+
 		 
 		 
 		mRedrawHandler.sleep(1231);
