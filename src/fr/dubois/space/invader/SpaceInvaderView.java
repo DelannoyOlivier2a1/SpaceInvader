@@ -69,6 +69,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
 		
+		
 	}
 
     private RefreshHandler mRedrawHandler = new RefreshHandler();
@@ -105,16 +106,23 @@ public class SpaceInvaderView extends View {
 	   
    }
 
-	public void update() {
-		
+   public void update() {
+
+	alien.act();
+
+		 
 		 
 		mRedrawHandler.sleep(1231);
 		
 		// TODO Auto-generated method stub
 	}
 
+
 	
-	
+
+
+
+
 
 	private int computeSize(int spec,int def){
 		int mode = View.MeasureSpec.getMode(spec);
