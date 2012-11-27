@@ -7,8 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.example.android.snake.SnakeView;
-import com.example.android.snake.SnakeView.RefreshHandler;
+
 
 
 
@@ -47,7 +46,8 @@ public class SpaceInvaderView extends View {
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
 	private Alien alien;
-	
+	private Vaisseau vaisseau;
+
 
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -77,7 +77,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
 		alienbitmap = loadImage(R.drawable.alien1);
-
+		
 	}
 
     private RefreshHandler mRedrawHandler = new RefreshHandler();
@@ -106,6 +106,7 @@ public class SpaceInvaderView extends View {
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
 		alien.draw(canvas);
+		vaisseau.draw(canvas);
 	}
 	
 
@@ -117,6 +118,7 @@ public class SpaceInvaderView extends View {
    public void update() {
 
 	alien.act();
+	vaisseau.act();
 
 		 
 		 
