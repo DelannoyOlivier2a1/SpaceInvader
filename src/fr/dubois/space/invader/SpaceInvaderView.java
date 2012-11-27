@@ -28,10 +28,17 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class SpaceInvaderView extends View {
-	
+
 	// Dimensions souhaitées
 	private static final int TARGET_HEIGHT = 800;
 	private static final int TARGET_WIDTH = 600;
+
+	private Bitmap  alienbitmap;
+	private static final int ic_launcher = 2;
+	private static final int missile = 3;
+	private static final int missile2 = 4;
+	private static final int ship = 5;
+
 
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
@@ -53,7 +60,7 @@ public class SpaceInvaderView extends View {
 	}
 
 
-	
+
 
 	void init(){
 		alien = new Alien(null, 0, 0);
@@ -64,7 +71,9 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
-		
+		alienbitmap = loadImage(R.drawable.alien1);
+
+
 	}
 
 
@@ -79,7 +88,7 @@ public class SpaceInvaderView extends View {
 		canvas.drawRGB(0, 0, 0);
 		canvas.drawRect(0, 0, TARGET_WIDTH-1, TARGET_HEIGHT-1, paint);
 		if (text != null){
-			
+
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
 		alien.draw(canvas);
@@ -106,43 +115,37 @@ public class SpaceInvaderView extends View {
 	}
 
 
-	
+
 	/*
     private void initSnakeView() {
         setFocusable(true);
 
         Resources r = this.getContext().getResources();
-        
+
         resetTiles(4);
         loadTile(alien1, r.getDrawable(R.drawable.alien1));
         loadTile(ic_launcher, r.getDrawable(R.drawable.ic_launcher));
         loadTile(missile, r.getDrawable(R.drawable.missile));
         loadTile(missile2, r.getDrawable(R.drawable.missile2));
         loadTile(ship, r.getDrawable(R.drawable.ship));
-    	
+
     }*/
-	
-    public void loadImage(int res) {
-    	int x;
-    	int y;
-    	
-        Bitmap bitmap = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap); 
-        
-        Drawable image;
-		image.setBounds(0, 0, x, y);
-        image.draw(canvas);
-        
-        loadImage(alien1, r.getDrawable(R.drawable.alien1));
-        loadImage(ic_launcher, r.getDrawable(R.drawable.ic_launcher));
-        loadImage(missile, r.getDrawable(R.drawable.missile));
-        loadImage(missile2, r.getDrawable(R.drawable.missile2));
-        loadImage(ship, r.getDrawable(R.drawable.ship));
-    	
-        x=get.;
-       
-        return bitmap;
-    }
+
+	public Bitmap loadImage(int res) {
+		Drawable drawable = this.getContext().getResources().getDrawable(res);
+		int x=drawable.getIntrinsicWidth();
+		int y=drawable.getIntrinsicHeight();
+
+		Bitmap bitmap = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap); 
+
+
+		drawable.setBounds(0, 0, x, y);
+		drawable.draw(canvas);
+
+
+		return bitmap;
+	}
 
 }
-}*/
+
