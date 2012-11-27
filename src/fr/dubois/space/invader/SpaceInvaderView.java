@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.example.android.snake.SnakeView;
+import com.example.android.snake.SnakeView.RefreshHandler;
+
 
 
 import android.content.Context;
@@ -24,6 +27,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.Property;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -73,14 +77,23 @@ public class SpaceInvaderView extends View {
 		text = "Texte";
 		alienbitmap = loadImage(R.drawable.alien1);
 
-
 	}
 
+    private RefreshHandler mRedrawHandler = new RefreshHandler();
 
+    class RefreshHandler extends Handler {
 
+        @Override
+        public void handleMessage(Message msg) {
+           SpaceInvaderView.this.update();
+           SpaceInvaderView.this.invalidate();
+        }
 
-
-
+        public void sleep(long delayMillis) {
+        	this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    };
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -93,6 +106,29 @@ public class SpaceInvaderView extends View {
 		}
 		alien.draw(canvas);
 	}
+	
+
+   public void sleep () {
+	   
+	   
+   }
+
+   public void update() {
+
+	alien.act(2,Y);
+
+		 
+		 
+		mRedrawHandler.sleep(1231);
+		
+		// TODO Auto-generated method stub
+	}
+
+
+	
+
+
+
 
 
 	private int computeSize(int spec,int def){
@@ -131,6 +167,7 @@ public class SpaceInvaderView extends View {
 
     }*/
 
+
 	public Bitmap loadImage(int res) {
 		Drawable drawable = this.getContext().getResources().getDrawable(res);
 		int x=drawable.getIntrinsicWidth();
@@ -146,6 +183,7 @@ public class SpaceInvaderView extends View {
 
 		return bitmap;
 	}
+
 
 }
 
