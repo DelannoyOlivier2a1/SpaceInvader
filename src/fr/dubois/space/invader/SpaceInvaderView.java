@@ -34,11 +34,7 @@ public class SpaceInvaderView extends View {
 	private static final int TARGET_WIDTH = 600;
 
 	private Bitmap  alienbitmap;
-	private static final int ic_launcher = 2;
-	private static final int missile = 3;
-	private static final int missile2 = 4;
-	private static final int ship = 5;
-
+	Matrix transform;
 
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à afficher
