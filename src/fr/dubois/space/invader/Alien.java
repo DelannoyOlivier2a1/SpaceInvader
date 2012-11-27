@@ -1,6 +1,9 @@
 package fr.dubois.space.invader;
 
 import android.graphics.Bitmap;
+import android.util.Property;
+import android.view.View;
+
 
 public class Alien extends Sprite {
 
@@ -13,10 +16,15 @@ public class Alien extends Sprite {
 	@Override
 	public void act() {
 		// TODO Auto-generated method stub
-		
+		x=x+2;  
 	}
 
-}
+
+	}
+
+
+
+
 
 
 
