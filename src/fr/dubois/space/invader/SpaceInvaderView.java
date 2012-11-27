@@ -108,7 +108,7 @@ public class SpaceInvaderView extends View {
 
    public void update() {
 
-	alien.act();
+	alien.act(2,Y);
 
 		 
 		 
