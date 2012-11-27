@@ -82,6 +82,7 @@ public class SpaceInvaderView extends View {
 			
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
+		alien.draw(canvas);
 	}
 
 
