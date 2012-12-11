@@ -77,6 +77,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
 		alienbitmap = loadImage(R.drawable.alien1);
+		this.update();
 
 	}
 
@@ -120,7 +121,7 @@ public class SpaceInvaderView extends View {
 
 		 
 		 
-		mRedrawHandler.sleep(1231);
+		mRedrawHandler.sleep(40);
 		
 		// TODO Auto-generated method stub
 	}
