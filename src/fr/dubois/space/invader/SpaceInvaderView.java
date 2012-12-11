@@ -2,29 +2,18 @@ package fr.dubois.space.invader;
 
 
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.Picture;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 public class SpaceInvaderView extends View {
@@ -59,7 +48,6 @@ public class SpaceInvaderView extends View {
 
 
 	void init(){
-		alien = new Alien(null, 0, 0);
 		paint = new Paint();
 		paint.setStyle(Style.STROKE);
 		paint.setColor(Color.YELLOW);
@@ -68,6 +56,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
 		alienbitmap = loadImage(R.drawable.alien1);
+		alien = new Alien(alienbitmap, 0, 0);
 
 
 	}
